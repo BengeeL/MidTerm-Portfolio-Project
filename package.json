@@ -1,5 +1,5 @@
 {
-  "name": "week03-lab",
+  "name": "portfolio-lab",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -16,5 +16,18 @@
     "jquery": "^3.6.1",
     "morgan": "~1.9.1",
     "popper.js": "^1.16.1"
-  }
+  },
+  "description": "comp229",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BengeeL/MidTerm-Portfolio-Project.git"
+  },
+  "author": "Benjamin Lefebvre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BengeeL/MidTerm-Portfolio-Project/issues"
+  },
+  "homepage": "https://github.com/BengeeL/MidTerm-Portfolio-Project#readme"
 }
