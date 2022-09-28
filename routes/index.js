@@ -31,4 +31,8 @@ router.get("/contact", function (req, res, next) {
   res.render("index", { title: "Contact" });
 });
 
+router.get("/resume", function (req, res, next) {
+  res.render("index", { title: "Resume" });
+});
+
 module.exports = router;
