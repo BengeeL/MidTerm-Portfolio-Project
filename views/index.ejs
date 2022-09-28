@@ -1,20 +1,20 @@
-<%- include('partials/header'); -%>
-<%- include('partials/main_nav'); -%>
-
+<%- include('partials/header'); -%> <%- include('partials/main_nav'); -%>
 
 <!-- Main Content -->
 <main>
-  <div class="container-fluid bg-dark text-light p-5">
-    <div class="container bg-dark p-5">
-        <h1 class="display-4">Welcome to the <%= title %> page</h1>
-        <hr>
-        <p>By Benjamin Lefebvre</p>
-        <a href="/home" class="btn btn-primary">Home</a>
-    </div>
-  </div>
+  <% if (title === "Home") { %>
+    <%- include('partials/home'); -%>
+  <% } else if (title === "About Me") { %>
+    <%- include('partials/about'); -%>
+  <% } else if (title === "Projects") { %>
+    <%- include('partials/projects'); -%>
+  <% } else if (title === "Services") { %>
+    <%- include('partials/services'); -%>
+  <% } else if (title === "Contact") { %>
+    <%- include('partials/contact'); -%>
+  <% } else  { %>
+    <%- include('partials/error'); -%>
+  <% } %>
 </main>
-    
-    
 
-<%- include('partials/bottom_nav'); -%>
-<%- include('partials/footer'); -%>
+<%- include('partials/bottom_nav'); -%> <%- include('partials/footer'); -%>
