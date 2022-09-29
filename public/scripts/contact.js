@@ -1,3 +1,4 @@
+// contact.js - Benjamin Lefebvre - 301234587 - Sept 29th 
 // Contact Form Inputs Variables
 const contactForm = document.getElementById("contact-form");
 const fName = document.getElementById("fname");
