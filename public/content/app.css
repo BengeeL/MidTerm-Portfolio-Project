@@ -11,8 +11,8 @@
 
 /* Button */
 .btn-primary {
-  background-color: #009c86 !important;
-  border-color: #009c86;
+  background-color: #01A49A !important;
+  border-color: #01A49A;
 }
 .btn-primary:hover {
   background-color: #01705f !important;
@@ -33,3 +33,6 @@
     border-radius: 50%;
 }
 
+.col-md {
+  margin: 3% 0;
+}
