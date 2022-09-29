@@ -1,52 +1,105 @@
 <!-- Section 1 - Dark-->
-  <div class="container-fluid bg-dark text-light p-5">
-    <div class="container bg-dark p-5">
-      <h1 class="display-4">Hit me up!</h1>
-      <h3>To collaborate, and more.</h3>
-      <hr />
-      <p>By Benjamin Lefebvre</p>
-    </div>
-  </div>
-
-<!-- Section 2 - Light -->
-<div class="container-fluid bg-light text-dark p-5">
-    <div class="container bg-light p-5">
-    <h2>Please fill the form</h2>
+<div class="container-fluid bg-dark text-light p-5">
+  <div class="container bg-dark p-5">
+    <h1 class="display-4">Hit me up!</h1>
+    <h3>To collaborate, and more.</h3>
+    <hr />
+    <h5>Please fill the form</h5>
     <p>I will get back to you within 48 hours!</p>
-
+    <br />
     <form id="contact-form">
-        <div class="form-group">
+      <div class="form-group">
         <div class="row">
-            <div class="col-md-6">
+          <div class="col-md-6">
             <label for="fname">First Name*</label>
-            <input type="text" class="form-control" id="fname" placeholder="First name" required="required">
-            </div>
-            <div class="col-md-6">
+            <input
+              type="text"
+              class="form-control"
+              id="fname"
+              placeholder="First name"
+              required="required"
+            />
+          </div>
+          <div class="col-md-6">
             <label for="lname">Last Name*</label>
-            <input type="text" class="form-control" id="lname" placeholder="Last name" required="required">
-            </div>
+            <input
+              type="text"
+              class="form-control"
+              id="lname"
+              placeholder="Last name"
+              required="required"
+            />
+          </div>
         </div>
-        </div>
-
-        <div class="form-group">
+      </div>
+      <br />
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input
+          type="tel"
+          class="form-control"
+          id="phone"
+          placeholder="123-456-7890"
+        />
+      </div>
+      <br />
+      <div class="form-group">
         <label for="email">Email address*</label>
-        <input type="email" class="form-control" id="email" placeholder="name@example.com" required="required">
-        </div>
-
-        <div class="form-group">
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          placeholder="name@example.com"
+          required="required"
+        />
+      </div>
+      <br />
+      <div class="form-group">
         <label for="subject">Subject*</label>
-        <input type="text" class="form-control" id="subject" placeholder="e.g. Job Offert" required="required">
-        </div>
-
-        <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          id="subject"
+          placeholder="e.g. Job Offert"
+          required="required"
+        />
+      </div>
+      <br />
+      <div class="form-group">
         <label for="message">Message*</label>
-        <textarea class="form-control" id="message" rows="3" required="required"></textarea>
-        </div>
-
-        <input class="btn btn-lg btn-light" type="submit" id="submit" value="Send">
-        <input class="btn btn-lg btn-light" type="reset" id="reset" value="Clear">
-
+        <textarea
+          class="form-control"
+          id="message"
+          rows="3"
+          required="required"
+        ></textarea>
+      </div>
+      <p id="result" class="contact-result">wdwdwef</p>
+      <br />
+      <input
+        class="btn btn-lg btn-primary"
+        type="submit"
+        id="submit"
+        value="Send"
+      />
+      <input
+        class="btn btn-lg btn-light"
+        type="reset"
+        id="reset"
+        value="Clear"
+      />
     </form>
-    </div>
+  </div>
+  <div class="container bg-dark p-5 text-left">
+    <h1>
+      <a href="https://github.com/BengeeL"
+        ><i class="fa-brands fa-square-github"></i></a
+      ><br />
+      <a href="https://linkedin.com/in/benjaminlefebvre1024"
+        ><i class="fa-brands fa-linkedin"></i
+      ></a>
+    </h1>
+  </div>
 </div>
-</div>
+
+<script src="scripts/contact.js"></script>

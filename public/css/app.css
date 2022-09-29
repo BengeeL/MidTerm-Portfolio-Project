@@ -33,6 +33,32 @@
     border-radius: 50%;
 }
 
-.col-md {
+.col-md, .col-lg-6 {
   margin: 3% 0;
+}
+
+/* Contact Me */
+/* Links */
+a {
+  color: #fff;
+}
+a:hover {
+  color: #01705f;
+}
+
+/* Contact message result */
+.contact-result {
+  display: none;
+}
+
+.contact-success {
+  font-size: x-small;
+  color: #9AE26C;
+  display: block;
+}
+
+.contact-error {
+  font-size: x-small;
+  color: #FF7A5A;
+  display: block;
 }

@@ -1,22 +1,7 @@
-<%- include('partials/header'); -%> <%- include('partials/main_nav'); -%>
+<%- include('partials/header'); -%>
+<%- include('partials/main_nav'); -%> 
 
-<!-- Main Content -->
-<main>
-  <% if (title === "Home") { %>
-    <%- include('partials/home'); -%>
-  <% } else if (title === "About Me") { %>
-    <%- include('partials/about'); -%>
-    <% } else if (title === "Resume") { %>
-    <%- include('partials/resume'); -%>
-  <% } else if (title === "Projects") { %>
-    <%- include('partials/projects'); -%>
-  <% } else if (title === "Services") { %>
-    <%- include('partials/services'); -%>
-  <% } else if (title === "Contact") { %>
-    <%- include('partials/contact'); -%>
-  <% } else  { %>
-    <%- include('partials/error'); -%>
-  <% } %>
-</main>
+<%-include('partials/content'); %> 
 
-<%- include('partials/bottom_nav'); -%> <%- include('partials/footer'); -%>
+<%- include('partials/bottom_nav'); -%> 
+<%-include('partials/footer'); -%>
