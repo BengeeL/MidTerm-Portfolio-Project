@@ -67,6 +67,10 @@ a:hover {
 
 /* Contact list */
 /* Email formating */
+th {
+  font-size: large;
+}
+
 .col-email {
   word-wrap: break-word;
   overflow-wrap: break-word;
