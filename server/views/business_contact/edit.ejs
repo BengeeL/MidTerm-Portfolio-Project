@@ -1,4 +1,4 @@
-<!-- add.ejs - Benjamin Lefebvre - 301234587 - Oct 22nd  -->
+<!-- edit.ejs - Benjamin Lefebvre - 301234587 - Oct 22nd  -->
 
 <%- include('../partials/header'); -%> <%- include('../partials/main_nav'); -%>
 
@@ -7,6 +7,7 @@
     <div class="row">
       <div class="offset-md-2 col-md-8">
         <h1><%= title %></h1>
+        <br />
 
         <form class="form needs-validation" method="POST" novalidate>
           <div class="form-group">
@@ -53,11 +54,11 @@
             <div class="valid-feedback">Looks good!</div>
             <div class="invalid-feedback">Please provide a valid email.</div>
           </div>
+          <br />
 
           <button class="btn btn-primary" type="submit">
             <i class="fas fa-edit"></i> Submit
           </button>
-
           <a href="/business_contact" class="btn btn-warning"
             ><i class="fas fa-undo"></i> Cancel</a
           >
@@ -67,6 +68,6 @@
   </div>
 </main>
 
-<script src="scripts/form_validation.js"></script>
+<script src="/scripts/form_validation.js"></script>
 
 <%- include('../partials/bottom_nav'); -%> <%-include('../partials/footer'); -%>

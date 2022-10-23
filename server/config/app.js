@@ -1,7 +1,7 @@
 // app.js - Benjamin Lefebvre - 301234587 - Sept 29th
 
 // Manage .env files
-require('dotenv').config();
+require("dotenv").config();
 
 // Installed 3rd party packages
 let createError = require("http-errors");
@@ -12,16 +12,16 @@ let logger = require("morgan");
 
 // Database setup
 let mongoose = require("mongoose");
-let DB = require('./db');
+let DB = require("./db");
 
-// Point Mongoose to the DB URI 
+// Point Mongoose to the DB URI
 mongoose.connect(DB.URI);
 
 let mongoDB = mongoose.connection;
-mongoDB.on('error', console.error.bind(console, "Connection Error: "));
-mongoDB.once('open', () => {
-  console.log('Connected to MongoDB...')
-})
+mongoDB.on("error", console.error.bind(console, "Connection Error: "));
+mongoDB.once("open", () => {
+  console.log("Connected to MongoDB...");
+});
 
 let indexRouter = require("../routes/index");
 let usersRouter = require("../routes/users");
