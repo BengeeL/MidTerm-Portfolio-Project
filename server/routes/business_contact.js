@@ -72,13 +72,13 @@ router.post("/edit/:id", (req, res, next) => {
   let id = req.params.id;
 
   let updatedContact = Contact({
-    "id": id,
+    "_id": id,
     "name": req.body.name,
     "phone": req.body.phone,
     "email": req.body.email
  })
 
- Contact.updateOne( {id:  id}, updatedContact, (err) => {
+ Contact.updateOne( {_id:  id}, updatedContact, (err) => {
   if(err) {
     console.log(err);
     res.end(err);
@@ -92,7 +92,7 @@ router.post("/edit/:id", (req, res, next) => {
 router.get("/delete/:id", (req, res, next) => {
  let id = req.params.id;
 
- Contact.remove({id:id}, (err) => {
+ Contact.remove({_id:id}, (err) => {
   if(err){
     console.log(err);
     res.end(err);

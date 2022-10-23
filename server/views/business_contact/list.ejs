@@ -3,9 +3,18 @@
 
 <main>
   <div class="container text-light">
+    <!-- Page Header -->
+    <h1 class="display-4"><%= title %></h1>
+    <hr />
+    <br />
+
+    <!-- Table of contacts -->
     <div class="row">
-      <h1><%= title %></h1>
-      <a href="/business_contact/add" class="btn btn-primary" role="button">
+      <a
+        href="/business_contact/add"
+        class="btn btn-primary btn-top-table"
+        role="button"
+      >
         <i class="fas fa-plus-circle"></i> Add a Contact
       </a>
       <table class="table table-bordered table-striped table-hover">
@@ -27,7 +36,7 @@
           <td class="text-center text-light col-3">
             <%= ContactList[i].phone %>
           </td>
-          <td class="text-center text-light col-5">
+          <td class="text-center text-light col-5 col-email">
             <%= ContactList[i].email %>
           </td>
           <td class="text-center text-light col-1">
@@ -36,7 +45,7 @@
               class="btn btn-primary btn-sm"
               role="button"
             >
-              <i class="fas fa-pencil-alt"></i><br />Edit
+              <i class="fas fa-pencil-alt"></i><br />
             </a>
           </td>
           <td class="text-center text-light col-1">
@@ -45,7 +54,7 @@
               class="btn btn-danger btn-sm"
               role="button"
             >
-              <i class="fas fa-trash-alt"></i><br />Delete
+              <i class="fas fa-trash-alt"></i><br />
             </a>
           </td>
         </tr>

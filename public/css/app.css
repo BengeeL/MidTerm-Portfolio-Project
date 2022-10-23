@@ -12,8 +12,8 @@
 
 /* Button */
 .btn-primary {
-  background-color: #01A49A !important;
-  border-color: #01A49A;
+  background-color: #01a49a !important;
+  border-color: #01a49a;
 }
 .btn-primary:hover {
   background-color: #01705f !important;
@@ -29,12 +29,13 @@
 /* About Me */
 /* Images */
 .img-profil {
-    width: 100%;
-    padding: 2%;
-    border-radius: 50%;
+  width: 100%;
+  padding: 2%;
+  border-radius: 50%;
 }
 
-.col-md, .col-lg-6 {
+.col-md,
+.col-lg-6 {
   margin: 3% 0;
 }
 
@@ -54,12 +55,25 @@ a:hover {
 
 .contact-success {
   font-size: x-small;
-  color: #9AE26C;
+  color: #9ae26c;
   display: block;
 }
 
 .contact-error {
   font-size: x-small;
-  color: #FF7A5A;
+  color: #ff7a5a;
   display: block;
+}
+
+/* Contact list */
+/* Email formating */
+.col-email {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.btn-top-table {
+  border-radius: 25px 25px 0 0 ;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
 }
