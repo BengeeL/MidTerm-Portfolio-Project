@@ -2,12 +2,19 @@
 
 let express = require("express");
 let router = express.Router();
+let mongoose = require("mongoose");
+let passport = require("passport");
+
+// Create User model instance
+let userModel = require("../models/user");
+let User = userModel.User;
 
 const currentYear = new Date().getFullYear();
 
 module.exports.displayHomePage = (req, res, next) => {
   res.render("index", {
     title: "Home",
+    displayName: req.user ? req.user.displayName : "",
     year: currentYear,
   });
 };
@@ -15,6 +22,7 @@ module.exports.displayHomePage = (req, res, next) => {
 module.exports.displayAboutPage = (req, res, next) => {
   res.render("index", {
     title: "About Me",
+    displayName: req.user ? req.user.displayName : "",
     year: currentYear,
   });
 };
@@ -22,6 +30,7 @@ module.exports.displayAboutPage = (req, res, next) => {
 module.exports.displayProjectsPage = (req, res, next) => {
   res.render("index", {
     title: "Projects",
+    displayName: req.user ? req.user.displayName : "",
     year: currentYear,
   });
 };
@@ -29,6 +38,7 @@ module.exports.displayProjectsPage = (req, res, next) => {
 module.exports.displayServicesPage = (req, res, next) => {
   res.render("index", {
     title: "Services",
+    displayName: req.user ? req.user.displayName : "",
     year: currentYear,
   });
 };
@@ -36,6 +46,7 @@ module.exports.displayServicesPage = (req, res, next) => {
 module.exports.displayContactPage = (req, res, next) => {
   res.render("index", {
     title: "Contact",
+    displayName: req.user ? req.user.displayName : "",
     year: currentYear,
   });
 };
@@ -53,6 +64,7 @@ module.exports.processContactPage = (req, res, next) => {
   // Sending to home page
   res.render("index", {
     title: "Home",
+    displayName: req.user ? req.user.displayName : "",
     year: currentYear,
   });
 };
@@ -60,6 +72,97 @@ module.exports.processContactPage = (req, res, next) => {
 module.exports.displayResumePage = (req, res, next) => {
   res.render("index", {
     title: "Resume",
+    displayName: req.user ? req.user.displayName : "",
     year: currentYear,
   });
+};
+
+module.exports.displayLoginPage = (req, res, next) => {
+  if (!req.user) {
+    res.render("auth/login", {
+      title: "Please Login",
+      messages: req.flash('loginMessage'),
+      displayName: req.user ? req.user.displayName : "",
+      year: currentYear,
+    });
+  } else {
+    return res.redirect("/");
+  }
+};
+
+module.exports.processLoginPage = (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    // Server error
+    if (err) {
+      return next(err);
+    }
+    // is there a user login error
+    if (!user) {
+      req.flash('loginMessage', 'Authentication Error');
+      return res.redirect("/login");
+    }
+    req.login(user, (err) => {
+      // Server Error
+      if (err) {
+        return next(err);
+      }
+      res.redirect("/business_contact");
+    });
+  })(req, res, next);
+};
+
+module.exports.displayRegisterPage = (req, res, next) => {
+  // If user not already logged in
+  if (!req.user) {
+    res.render("auth/register", {
+      title: "Please Register",
+      messages: req.flash('registerMessage'),
+      displayName: req.user ? req.user.displayName : "",
+      year: currentYear,
+    });
+  } else {
+    return res.redirect("/");
+  }
+};
+
+module.exports.processRegisterPage = (req, res, next) => {
+  // Instanciate a user object
+  let newUser = new User({
+    username: req.body.username,
+    email: req.body.email,
+    displayName: req.body.displayName,
+  });
+
+  User.register(newUser, req.body.password, (err) => {
+    if (err) {
+      console.log("Error: Adding new user");
+      if (err.name == "UserExistsError") {
+        req.flash(
+                    'registerMessage',
+                    'Registration Error: User Already Exists!'
+                );
+        console.log("Error: User Already Exist");
+      }
+      return res.render("auth/register", {
+        title: "Please Register",
+        messages: req.flash('registerMessage'),
+        displayName: req.user ? req.user.displayName : "",
+        year: currentYear,
+      });
+    } else {
+        // If no error exist 
+
+        // Redirect user and authenticate them 
+        return passport.authenticate('local') = (req, res, next) => {
+            res.redirect("/business_contact")
+        }
+    }
+  });
+};
+
+module.exports.processLogoutRequest = (req, res, next) => {
+    req.logout(function(err) {
+        if (err) { return next(err); }
+        res.redirect('/');
+    });
 };

@@ -15,3 +15,17 @@ let contactModel = mongoose.Schema(
 );
 
 module.exports = mongoose.model("Contact", contactModel);
+
+// Sorting function for object list of contact 
+module.exports.sortContactList = (contactModelList, property) => {
+  function compare(a, b) {
+    a = a[property];
+    b = b[property];
+    let result; 
+    
+    result = a.localeCompare(b);
+    return result;
+  }
+
+  return contactModelList.sort(compare);
+}

@@ -1,4 +1,4 @@
-// index.js - Benjamin Lefebvre - 301234587 - Sept 29th 
+// index.js - Benjamin Lefebvre - 301234587 - Sept 29th
 var express = require("express");
 var router = express.Router();
 
@@ -27,5 +27,20 @@ router.post("/contact", indexController.processContactPage);
 
 /* GET Resume. */
 router.get("/resume", indexController.displayResumePage);
+
+/* GET login page. */
+router.get("/login", indexController.displayLoginPage);
+
+/* POST login page. */
+router.post("/login", indexController.processLoginPage);
+
+/* GET register page. */
+router.get("/register", indexController.displayRegisterPage);
+
+/* POST register page. */
+router.post("/register", indexController.processRegisterPage);
+
+/* POST perform logout. */
+router.get("/logout", indexController.processLogoutRequest);
 
 module.exports = router;

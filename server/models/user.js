@@ -1,4 +1,4 @@
-// contact.js - Benjamin Lefebvre - 301234587 - Oct 22nd
+// user.js - Benjamin Lefebvre - 301234587 - Oct 22nd
 
 let mongoose = require("mongoose");
 let passportLocalMongoose = require("passport-local-mongoose");

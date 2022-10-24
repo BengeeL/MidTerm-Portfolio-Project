@@ -3,27 +3,37 @@ let express = require("express");
 let router = express.Router();
 let mongoose = require("mongoose");
 
-// Connect to our contact model
-let Contact = require("../models/contacts");
+let passport = require("passport");
 
 let businessContactController = require("../controllers/business_contact");
+
+// Helper function for guarding routes purposes
+function requireAuth(req, res, next) {
+  // Check if user logged in
+  if (!req.isAuthenticated()) {
+    return res.redirect("/login");
+  }
+  next();
+}
 
 // GET Route for display contact list page - READ operation
 router.get("/", businessContactController.displayContactList);
 
 // GET Route for display add page - CREATE operation
-router.get("/add", businessContactController.displayAddPage);
+router.get("/add", requireAuth, businessContactController.displayAddPage);
 
 // POST Route for processing add page - CREATE operation
-router.post("/add", businessContactController.processAddRequest);
+router.post("/add", requireAuth, businessContactController.processAddRequest);
 
 // GET Route for display edit page - UPDATE operation
-router.get("/edit/:id", businessContactController.displayEditPage);
+router.get("/edit/:id", requireAuth, businessContactController.displayEditPage);
 
 // POST Route for processing edit page - UPDATE operation
-router.post("/edit/:id", businessContactController.processEditRequest);
+router.post("/edit/:id", requireAuth, businessContactController.processEditRequest
+);
 
 // GET to perform deletion - DELETE operation
-router.get("/delete/:id", businessContactController.processDeleteRequest);
+router.get("/delete/:id", requireAuth, businessContactController.processDeleteRequest
+);
 
 module.exports = router;

@@ -13,8 +13,12 @@ module.exports.displayContactList = (req, res, next) => {
     if (err) {
       return console.error(err);
     } else {
+      // Sort contact list by name
+      Contact.sortContactList(ContactList, "name");
+
       res.render("business_contact/list", {
-        title: "Login",
+        title: "Business Contacts List",
+        displayName: req.user ? req.user.displayName : "",
         year: currentYear,
         ContactList: ContactList,
       });
@@ -25,6 +29,7 @@ module.exports.displayContactList = (req, res, next) => {
 module.exports.displayAddPage = (req, res, next) => {
   res.render("business_contact/add", {
     title: "Add Business Contact",
+    displayName: req.user ? req.user.displayName : "",
     year: currentYear,
   });
 };
@@ -57,6 +62,7 @@ module.exports.displayEditPage = (req, res, next) => {
     } else {
       res.render("business_contact/edit", {
         title: "Edit Business Contact",
+        displayName: req.user ? req.user.displayName : "",
         year: currentYear,
         contact: contactToEdit,
       });
@@ -97,4 +103,4 @@ module.exports.processDeleteRequest = (req, res, next) => {
       res.redirect("/business_contact");
     }
   });
-}
+};
