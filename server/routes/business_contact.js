@@ -17,7 +17,7 @@ function requireAuth(req, res, next) {
 }
 
 // GET Route for display contact list page - READ operation
-router.get("/", businessContactController.displayContactList);
+router.get("/", requireAuth, businessContactController.displayContactList);
 
 // GET Route for display add page - CREATE operation
 router.get("/add", requireAuth, businessContactController.displayAddPage);
