@@ -50,7 +50,7 @@ app.use(express.static(path.join(__dirname, "../../node_modules")));
 // Setup express session
 app.use(
   session({
-    secret: "SomeSecret",
+    secret: env.process.SESSION_SECRET,
     saveUninitialized: false,
     resave: false,
   })
@@ -66,6 +66,7 @@ app.use(passport.session());
 // passport user configuration
 // create a user model
 let userModel = require("../models/user");
+const { env } = require("process");
 let User = userModel.User;
 
 // Implement a user authentification strategy
